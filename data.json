@@ -1,0 +1,351 @@
+[
+  {
+    "championship": [
+      {
+        "teams": [
+          {
+            "barcelona": [
+              {
+                "name": "Joan García",
+                "number": 13,
+                "type": "Goalkeeper",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Jules Koundé",
+                "number": 23,
+                "type": "Right Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Pau Cubarsí",
+                "number": 2,
+                "type": "Right Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Eric García",
+                "number": 24,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Alejandro Balde",
+                "number": 3,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Fermín López",
+                "number": 16,
+                "type": "Left Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Frenkie de Jong",
+                "number": 21,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": "read"
+              },
+              {
+                "name": "Pedri",
+                "number": 8,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Lamine Yamal",
+                "number": 10,
+                "type": "Right Winger",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Robert Lewandowski",
+                "number": 9,
+                "type": "Centre Forward",
+                "scored a goal": true,
+                "card": null
+              },
+              {
+                "name": "Raphinha",
+                "number": 11,
+                "type": "Left Winger",
+                "scored a goal": true,
+                "card": null
+              }
+            ],
+            "real madrid": [
+              {
+                "name": "Thibaut Courtois",
+                "number": 1,
+                "type": "Goalkeeper",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Raúl Asencio",
+                "number": 17,
+                "type": "Right Back",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Aurélien Tchouaméni",
+                "number": 14,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Dean Huijsen",
+                "number": 24,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Álvaro Carreras",
+                "number": 18,
+                "type": "Left Back",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Federico Valverde",
+                "number": 8,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Jude Bellingham",
+                "number": 5,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Eduardo Camavinga",
+                "number": 6,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Rodrygo",
+                "number": 11,
+                "type": "Right Forward",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Vinícius Júnior",
+                "number": 7,
+                "type": "Centre Forward",
+                "scored a goal": true,
+                "card": null
+              },
+              {
+                "name": "Gonzalo García",
+                "number": 16,
+                "type": "Left Forward",
+                "scored a goal": true,
+                "card": null
+              }
+            ],
+            "Liverpool": [
+              {
+                "name": "Alisson",
+                "number": 1,
+                "type": "Goalkeeper",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Trent Alexander-Arnold",
+                "number": 66,
+                "type": "Right Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Virgil van Dijk",
+                "number": 4,
+                "type": "Centre Back",
+                "scored a goal": true,
+                "card": null
+              },
+              {
+                "name": "Ibrahima Konaté",
+                "number": 5,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Andy Robertson",
+                "number": 26,
+                "type": "Left Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Alexis Mac Allister",
+                "number": 10,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Dominik Szoboszlai",
+                "number": 8,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Mohamed Salah",
+                "number": 11,
+                "type": "Right Winger",
+                "scored a goal": true,
+                "card": null
+              },
+              {
+                "name": "Luis Díaz",
+                "number": 7,
+                "type": "Left Winger",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Darwin Núñez",
+                "number": 9,
+                "type": "Centre Forward",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Cody Gakpo",
+                "number": 18,
+                "type": "Left Forward",
+                "scored a goal": false,
+                "card": null
+              }
+            ],
+            "Arsenal": [
+              {
+                "name": "David Raya",
+                "number": 22,
+                "type": "Goalkeeper",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Ben White",
+                "number": 4,
+                "type": "Right Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "William Saliba",
+                "number": 2,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Gabriel Magalhães",
+                "number": 6,
+                "type": "Centre Back",
+                "scored a goal": false,
+                "card": "yellow"
+              },
+              {
+                "name": "Oleksandr Zinchenko",
+                "number": 35,
+                "type": "Left Back",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Martin Ødegaard",
+                "number": 8,
+                "type": "Attacking Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Declan Rice",
+                "number": 41,
+                "type": "Central Midfielder",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Bukayo Saka",
+                "number": 7,
+                "type": "Right Winger",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Gabriel Martinelli",
+                "number": 11,
+                "type": "Left Winger",
+                "scored a goal": false,
+                "card": null
+              },
+              {
+                "name": "Kai Havertz",
+                "number": 29,
+                "type": "Centre Forward",
+                "scored a goal": true,
+                "card": null
+              },
+              {
+                "name": "Gabriel Jesus",
+                "number": 9,
+                "type": "Centre Forward",
+                "scored a goal": false,
+                "card": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "matchs": [
+          {
+            "match": "barcelona VS Real Madrid",
+              "date": "2026-01-11",
+              "extraTime": null,
+              "winner": "Barcelona",
+              "loser": "Real madrid",
+              "Score": "Barcelona 3:2 Real madrid"
+            },
+		{
+            "match": "Liverpool VS Arsenal",
+              "date": "2026-02-14",
+              "extraTime": null,
+              "winner": "Liverpool",
+              "loser": "Arsenal",
+              "Score": "Liverpool 2:1 Arsenal"
+            }
+          
+        ]
+      }
+    ]
+  }
+]
+
+
