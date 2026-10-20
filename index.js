@@ -18,16 +18,22 @@ program
    .option('-p, --players <vuvid>', '¬иводить гравц≥в')
   .option('-t, --team <vuvid>', '¬иводить команду')
   .option('-c, --Player <vuvid>', '¬иводить конкретного гравц€')
+    .option('-g, --pole <vuvid>', '¬иводить поле гравц€')
   .action((options) => {
       try{ const globalop = program.opts()
-      console.log("ќпц≥њ, €к≥ отримала програма:", options);
       const fileContent = fs.readFileSync(globalop.data, 'utf-8');
       const Data = JSON.parse(fileContent);
      
       if(options.match ){
+          if(options.match == "2026-01-11"){
+                const matchs = Data[0].championship[1].matchs[0];
+                console.log(matchs)
+          }else if (options.match == "2026-02-14"){
+                       const matchs = Data[0].championship[1].matchs[1];
+                console.log(matchs)
 
-        const matchs = Data[0].championship[1].matchs[options.match];
-        console.log(matchs)
+          }
+
 
 
      
