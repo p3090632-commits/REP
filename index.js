@@ -76,21 +76,30 @@ program
 
       if(options.Player && options.team){if(options.team =='Barcelona'){
           
-            const Players = Data[0].championship[0].teams[0].barcelona[options.Player];
-            console.log(Players)
+            const Players = Data[0].championship[0].teams[0].barcelona[options.Player]["name"];
+            const h = Data[0].championship[0].teams[0].barcelona[options.Player][options.pole];
+            console.log(Players );
+            console.log(h)
         
 
       }
       else if(options.team =='Liverpool'){
-       const Players = Data[0].championship[0].teams[0].Liverpool[options.Player];
-            console.log(Players)
+       const Players = Data[0].championship[0].teams[0].Liverpool[options.Player]["name"];
+                  const h = Data[0].championship[0].teams[0].Liverpool[options.Player][options.pole];
+            console.log(Players );
+            console.log(h)
       }else if(options.team =='Arsenal'){
-            const Players = Data[0].championship[0].teams[0].Arsenal[options.Player];
-             console.log(Players)
+            const Players = Data[0].championship[0].teams[0].Arsenal[options.Player]["name"];
+            const h = Data[0].championship[0].teams[0].Arsenal[options.Player][options.pole];
+            console.log(Players );
+            console.log(h)
 
       }else if(options.team =='Real-madrid'){
-       const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player];
-             console.log(Players)
+       const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player]["name"];
+             const h = Data[0].championship[0].teams[0]["real madrid"][options.Player][options.pole];
+            console.log(Players );
+            console.log(h)
+
       
       }
 
