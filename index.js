@@ -9,15 +9,15 @@ program
 
   
   program
-  .option('-d, --data <path>','BIG DICK','data.json');
+  .option('-d, --data <path>','Шлях до json ','data.json');
 
 program
 .command('list') 
-  .description('Виводить привітання на екран')
-  .option('-m, --match <match>', 'Зробити ім\'я великими літерами','')
-   .option('-p, --players <vuvid>', 'Зробити ім\'я великими літерами','11')
-  .option('-t, --team <vuvid>', 'Зробити ім\'я великими літерами','1')
-  .option('-c, --Player <vuvid>', 'Зробити ім\'я великими літерами','0')
+  .description('Виводить характеристику чемпіонату')
+  .option('-m, --match <match>', 'Виводить матчі')
+   .option('-p, --players <vuvid>', 'Виводить гравців')
+  .option('-t, --team <vuvid>', 'Виводить команду')
+  .option('-c, --Player <vuvid>', 'Виводить конкретного гравця')
   .action((options) => {
       try{ const globalop = program.opts()
       console.log("Опції, які отримала програма:", options);
@@ -31,8 +31,8 @@ program
 
 
      
-      }else if(options.team){
-          if(options.team =='1'){
+      }else if(options.team && options.players){
+          if(options.team =='Barcelona'){
               console.log("\n Barcelona \n")
              
              for(let i=0; i<options.players;i++){
@@ -41,14 +41,14 @@ program
              
               }
 
-          } else if(options.team =='2'){
+          } else if(options.team =='Liverpool'){
                console.log(" \n Liverpool \n")
              for(let i=0; i<options.players;i++){
             const Players = Data[0].championship[0].teams[0].Liverpool[i];
               console.log(i+1 +" "+ Players.name + " "+ Players.number + " | scored a goal:" + Players["scored a goal"])
 
           }
-             }else if(options.team =='3'){
+             }else if(options.team =='Arsenal'){
                console.log("\n Arsenal \n")
              for(let i=0; i<options.players;i++){
             const Players = Data[0].championship[0].teams[0].Arsenal[i];
@@ -56,7 +56,7 @@ program
              
       }
       
-      }else if(options.team =='4'){
+      }else if(options.team =='Real madrid'){
                console.log("\n Real madrid \n")
              for(let i=0; i<options.players;i++){
             const Players = Data[0].championship[0].teams[0]["real madrid"][i];
@@ -64,7 +64,32 @@ program
              
       }
       
-      }}}
+      }
+      }
+
+
+      if(options.Player && options.team){if(options.team =='Barcelona'){
+          
+            const Players = Data[0].championship[0].teams[0].barcelona[options.Player];
+            console.log(Players)
+        
+
+      }
+      else if(options.team =='Liverpool'){
+       const Players = Data[0].championship[0].teams[0].Liverpool[options.Player];
+            console.log(Players)
+      }else if(options.team =='Arsenal'){
+            const Players = Data[0].championship[0].teams[0].Arsenal[options.Player];
+             console.log(Players)
+
+      }else if(options.team =='Real-madrid'){
+       const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player];
+             console.log(Players)
+      
+      }
+
+
+      }}
      catch(error){
          console.log(error)
      }
