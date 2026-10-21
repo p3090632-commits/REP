@@ -1,30 +1,36 @@
-import { program } from 'commander';
+п»їimport { program } from 'commander';
 import fs from 'fs';
 
 
 program
   .name('football-cli')
-  .description('Програма для перегляду футбольних даних')
+  .description('РџСЂРѕРіСЂР°РјР° РґР»СЏ РїРµСЂРµРіР»СЏРґСѓ С„СѓС‚Р±РѕР»СЊРЅРёС… РґР°РЅРёС…')
   .version('1.0.0');
 
   
   program
-  .option('-d, --data <path>','Шлях до json ','data.json');
+  .option('-d, --data <path>','РЁР»СЏС… РґРѕ json ','data.json');
 
 program
-.command('list') 
-  .description('Виводить характеристику чемпіонату')
-  .option('-m, --match <match>', 'Виводить матчі')
-   .option('-p, --players <vuvid>', 'Виводить гравців')
-  .option('-t, --team <vuvid>', 'Виводить команду')
-  .option('-c, --Player <vuvid>', 'Виводить конкретного гравця')
-    .option('-g, --pole <vuvid>', 'Виводить поле гравця')
+.command('list ') 
+  .description('Р’РёРІРѕРґРёС‚СЊ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєСѓ С‡РµРјРїС–РѕРЅР°С‚Сѓ')
+  .option('-s,--show',"Р’РёРІРѕРґРёС‚СЊ С‡РµРјРїС–РѕРЅР°С‚")
+  .option('-m, --match <match>', 'Р’РёРІРѕРґРёС‚СЊ РјР°С‚С‡С–')
+   .option('-p, --players <vuvid>', 'Р’РёРІРѕРґРёС‚СЊ РіСЂР°РІС†С–РІ')
+  .option('-t, --team <vuvid>', 'Р’РёРІРѕРґРёС‚СЊ РєРѕРјР°РЅРґСѓ')
+  .option('-c, --Player <vuvid>', 'Р’РёРІРѕРґРёС‚СЊ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РіСЂР°РІС†СЏ')
+    .option('-g, --pole <vuvid>', 'Р’РёРІРѕРґРёС‚СЊ РїРѕР»Рµ РіСЂР°РІС†СЏ')
   .action((options) => {
       try{ const globalop = program.opts()
       const fileContent = fs.readFileSync(globalop.data, 'utf-8');
       const Data = JSON.parse(fileContent);
+
+      if(options.show){
+          console.log(fileContent);
+          
+      }
      
-      if(options.match ){
+     else if(options.match ){
           if(options.match == "2026-01-11"){
                 const matchs = Data[0].championship[1].matchs[0];
                 console.log(matchs)
@@ -98,9 +104,7 @@ program
        const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player]["name"];
              const h = Data[0].championship[0].teams[0]["real madrid"][options.Player][options.pole];
             console.log(Players );
-            console.log(h)
-
-      
+            console.log(h);
       }
 
 
