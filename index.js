@@ -12,7 +12,7 @@ program
   .option('-d, --data <path>','Шлях до json ','data.json');
 
 program
-.command('list ') 
+.command('list <mode>') 
   .description('Виводить характеристику чемпіонату')
   .option('-s,--show',"Виводить чемпіонат")
   .option('-m, --match <match>', 'Виводить матчі')
@@ -20,99 +20,100 @@ program
   .option('-t, --team <vuvid>', 'Виводить команду')
   .option('-c, --Player <vuvid>', 'Виводить конкретного гравця')
     .option('-g, --pole <vuvid>', 'Виводить поле гравця')
-  .action((options) => {
-      try{ const globalop = program.opts()
-      const fileContent = fs.readFileSync(globalop.data, 'utf-8');
-      const Data = JSON.parse(fileContent);
+ .action((mode, options) => {
+      try { 
+          const globalop = program.opts();
+          const fileContent = fs.readFileSync(globalop.data, 'utf-8');
+          const Data = JSON.parse(fileContent);
 
-      if(options.show){
-          console.log(fileContent);
-          
-      }
-     
-     else if(options.match ){
-          if(options.match == "2026-01-11"){
-                const matchs = Data[0].championship[1].matchs[0];
-                console.log(matchs)
-          }else if (options.match == "2026-02-14"){
-                       const matchs = Data[0].championship[1].matchs[1];
-                console.log(matchs)
-
-          }
-
-
-
-     
-      }else if(options.team && options.players){
-          if(options.team =='Barcelona'){
-              console.log("\n Barcelona \n")
-             
-             for(let i=0; i<options.players;i++){
-            const Players = Data[0].championship[0].teams[0].barcelona[i];
-              console.log(i+1 +" "+ Players.name + " "+ Players.number + " " + Players["scored a goal"])
-             
+          if (mode == 'info') {
+              if (options.show) {
+                  console.log(fileContent);
+              } else {
+                  console.log("введіть прапорець -s");
               }
-
-          } else if(options.team =='Liverpool'){
-               console.log(" \n Liverpool \n")
-             for(let i=0; i<options.players;i++){
-            const Players = Data[0].championship[0].teams[0].Liverpool[i];
-              console.log(i+1 +" "+ Players.name + " "+ Players.number + " | scored a goal:" + Players["scored a goal"])
-
+          } 
+          else if (mode == "search") {
+              
+              if (options.match) {
+                  if (options.match == "2026-01-11") {
+                      const matchs = Data[0].championship[1].matchs[0];
+                      console.log(matchs);
+                  } else if (options.match == "2026-02-14") {
+                      const matchs = Data[0].championship[1].matchs[1];
+                      console.log(matchs);
+                  } else {
+                      console.error("Невідома дата: " + options.match + ". Доступні дати: 2026-02-14, 2026-01-11.");
+                      process.exit(1);
+                  }
+              } 
+              else if (options.team && options.players) {
+                  if (options.team == 'Barcelona') {
+                      console.log("\n Barcelona \n");
+                      for (let i = 0; i < options.players; i++) {
+                          const Players = Data[0].championship[0].teams[0].barcelona[i];
+                          console.log(i + 1 + " " + Players.name + " " + Players.number + " " + Players["scored a goal"]);
+                      }
+                  } else if (options.team == 'Liverpool') {
+                      console.log(" \n Liverpool \n");
+                      for (let i = 0; i < options.players; i++) {
+                          const Players = Data[0].championship[0].teams[0].Liverpool[i];
+                          console.log(i + 1 + " " + Players.name + " " + Players.number + " | scored a goal:" + Players["scored a goal"]);
+                      }
+                  } else if (options.team == 'Arsenal') {
+                      console.log("\n Arsenal \n");
+                      for (let i = 0; i < options.players; i++) {
+                          const Players = Data[0].championship[0].teams[0].Arsenal[i];
+                          console.log(i + 1 + " " + Players.name + " " + Players.number + " | scored a goal:" + Players["scored a goal"]);
+                      }
+                  } else if (options.team == 'Real madrid') {
+                      console.log("\n Real madrid \n");
+                      for (let i = 0; i < options.players; i++) {
+                          const Players = Data[0].championship[0].teams[0]["real madrid"][i];
+                          console.log(i + 1 + " " + Players.name + " " + Players.number + " | scored a goal:" + Players["scored a goal"]);
+                      }
+                  }
+              } 
+              else if (options.Player && options.team) {
+                  if (options.team == 'Barcelona') {
+                      const Players = Data[0].championship[0].teams[0].barcelona[options.Player]["name"];
+                      const h = Data[0].championship[0].teams[0].barcelona[options.Player][options.pole];
+                      console.log(Players);
+                      console.log(h);
+                  } else if (options.team == 'Liverpool') {
+                      const Players = Data[0].championship[0].teams[0].Liverpool[options.Player]["name"];
+                      const h = Data[0].championship[0].teams[0].Liverpool[options.Player][options.pole];
+                      console.log(Players);
+                      console.log(h);
+                  } else if (options.team == 'Arsenal') {
+                      const Players = Data[0].championship[0].teams[0].Arsenal[options.Player]["name"];
+                      const h = Data[0].championship[0].teams[0].Arsenal[options.Player][options.pole];
+                      console.log(Players);
+                      console.log(h);
+                  } else if (options.team == 'Real-madrid') {
+                      const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player]["name"];
+                      const h = Data[0].championship[0].teams[0]["real madrid"][options.Player][options.pole];
+                      console.log(Players);
+                      console.log(h);
+                  } else {
+                      console.error("Невідома команда: " + options.team + ". Доступні команди: Liverpool, Arsenal, Real-madrid, Barcelona");
+                      process.exit(1);
+                  }
+              }
+              else {
+                  console.error("Вкажіть параметри для пошуку (-m або комбінації -t/-p, -t/-c)");
+                  process.exit(1);
+              }
+          } 
+          else {
+              console.error("Невідомий режим: " + mode + ". Доступні режими: info, search.");
+              process.exit(1);
           }
-             }else if(options.team =='Arsenal'){
-               console.log("\n Arsenal \n")
-             for(let i=0; i<options.players;i++){
-            const Players = Data[0].championship[0].teams[0].Arsenal[i];
-              console.log(i+1 +" "+ Players.name + " "+ Players.number + " | scored a goal:" + Players["scored a goal"])
-             
-      }
-      
-      }else if(options.team =='Real madrid'){
-               console.log("\n Real madrid \n")
-             for(let i=0; i<options.players;i++){
-            const Players = Data[0].championship[0].teams[0]["real madrid"][i];
-              console.log(i+1 +" "+ Players.name + " "+ Players.number + " | scored a goal:" + Players["scored a goal"])
-             
-      }
-      
-      }
-      }
-
-
-      if(options.Player && options.team){if(options.team =='Barcelona'){
           
-            const Players = Data[0].championship[0].teams[0].barcelona[options.Player]["name"];
-            const h = Data[0].championship[0].teams[0].barcelona[options.Player][options.pole];
-            console.log(Players );
-            console.log(h)
-        
-
+      } catch (error) {
+          console.error("Помилка читання даних: " + error.message);
+          process.exit(1);
       }
-      else if(options.team =='Liverpool'){
-       const Players = Data[0].championship[0].teams[0].Liverpool[options.Player]["name"];
-                  const h = Data[0].championship[0].teams[0].Liverpool[options.Player][options.pole];
-            console.log(Players );
-            console.log(h)
-      }else if(options.team =='Arsenal'){
-            const Players = Data[0].championship[0].teams[0].Arsenal[options.Player]["name"];
-            const h = Data[0].championship[0].teams[0].Arsenal[options.Player][options.pole];
-            console.log(Players );
-            console.log(h)
-
-      }else if(options.team =='Real-madrid'){
-       const Players = Data[0].championship[0].teams[0]["real madrid"][options.Player]["name"];
-             const h = Data[0].championship[0].teams[0]["real madrid"][options.Player][options.pole];
-            console.log(Players );
-            console.log(h);
-      }
-
-
-      }}
-     catch(error){
-         console.log(error)
-     }
-
-  
   });
+
 program.parse();
